@@ -1,0 +1,30 @@
+As this project is made in django interface 
+django, anaconda, db browser(sql lite) should be installed 
+i then personally run this in visual code
+
+
+First create a virtual environment in the folder 
+by running the command (python -m venv venv)
+Activate the virtual environment (./venv/scripts/activate)
+Install all the requirements mentioned in the file requirements.txt
+Run the migration commands  
+python manage.py makemigrations 
+python manage.py migrate
+
+Run the server and login for patient side
+pyhton manage.py runserver
+
+
+To create a Doctor account only admin can make one account
+Run the commands
+python manage.py shell
+from core.model import User
+from django.contrib.auth.hasher import make_password
+a = User()
+a.username = 'doctor'
+a.password = make_password('doctor')
+a.is_doctor = 1
+a.is_patient = 0
+a.save()
+exit()
+
